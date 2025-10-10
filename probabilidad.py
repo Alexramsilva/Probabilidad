@@ -15,7 +15,7 @@ st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=5
 # Configuración de la app
 st.set_page_config(page_title="Calculadora de Probabilidades (UCA Probabilidad)", page_icon="UNRC", layout="centered")
 
-st.title("Calculadora de Distribuciones de Probabilidad")
+st.title("Calculadora de Distribuciones de Probabilidad  (UNRC-LCFI)")
 st.markdown("Selecciona una distribución y calcula probabilidades o valores críticos.")
 
 # Selección de distribución
