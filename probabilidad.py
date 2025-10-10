@@ -13,7 +13,7 @@ import scipy.stats as stats
 st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=550)
 
 # Configuración de la app
-st.set_page_config(page_title="Calculadora de Probabilidades", page_icon="UNRC", layout="centered")
+st.set_page_config(page_title="Calculadora de Probabilidades (UCA Probabilidad)", page_icon="UNRC", layout="centered")
 
 st.title("Calculadora de Distribuciones de Probabilidad")
 st.markdown("Selecciona una distribución y calcula probabilidades o valores críticos.")
@@ -56,7 +56,7 @@ elif dist == "Binomial":
     st.write(f"**{tipo} = {prob:.4f}**")
 
 elif dist == "Poisson":
-    mu = st.number_input("Media (μ)", min_value=0.0, value=2.0)
+    mu = st.number_input("Media (λ)", min_value=0.0, value=2.0)
     x = st.number_input("Número de eventos (x)", min_value=0, value=3)
     tipo = st.radio("Tipo de cálculo", ["P(X = x)", "P(X ≤ x)", "P(X ≥ x)"])
 
@@ -115,4 +115,4 @@ elif dist == "F de Fisher":
     st.write(f"**{tipo} = {prob:.4f}**")
 
 st.divider()
-st.caption("Hecho con ❤️ en Streamlit — Calculadora de distribuciones estadísticas.")
+st.caption("Calculadora de distribuciones estadísticas  UNRC_LCFI (UCA Probabilidad)")
