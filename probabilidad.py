@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 import scipy.stats as stats
 
-st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=550)
+st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=250)
 
 # Configuración de la app
 st.set_page_config(page_title="Calculadora de Probabilidades (UCA Probabilidad)", page_icon="UNRC", layout="centered")
