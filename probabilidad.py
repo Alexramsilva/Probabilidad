@@ -58,12 +58,12 @@ if dist == "Bernoulli":
 elif dist == "Binomial":
     n = st.number_input("Número de ensayos (n)", min_value=1, value=10)
     p = st.number_input("Probabilidad de éxito (p)", min_value=0.0, max_value=1.0, value=0.5)
-    x = st.number_input("Número de éxitos (x)", min_value=0, max_value=int(n), value=5)
-    tipo = st.radio("Tipo de cálculo", ["P(X = x)", "P(X ≤ x)", "P(X ≥ x)"])
+    x = st.number_input("Número de éxitos (k)", min_value=0, max_value=int(n), value=5)
+    tipo = st.radio("Tipo de cálculo", ["P(X = k)", "P(X ≤ k)", "P(X ≥ k)"])
 
-    if tipo == "P(X = x)":
+    if tipo == "P(X = k)":
         prob = stats.binom.pmf(x, n, p)
-    elif tipo == "P(X ≤ x)":
+    elif tipo == "P(X ≤ k)":
         prob = stats.binom.cdf(x, n, p)
     else:
         prob = 1 - stats.binom.cdf(x-1, n, p)
@@ -74,24 +74,24 @@ elif dist == "Binomial":
     ys = stats.binom.pmf(xs, n, p)
     fig, ax = plt.subplots()
     ax.bar(xs, ys, color='lightgray')
-    if tipo == "P(X = x)":
+    if tipo == "P(X = k)":
         ax.bar([x], [stats.binom.pmf(x, n, p)], color='#9F2241')
-    elif tipo == "P(X ≤ x)":
+    elif tipo == "P(X ≤ k)":
         ax.bar(xs[xs <= x], ys[xs <= x], color='#9F2241')
     else:
         ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Binomial (n={n}, p={p})")
     st.pyplot(fig)
-    st.latex(r"P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \quad x=0,1,\dots,n")
+    st.latex(r"P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k=0,1,\dots,n")
 
 elif dist == "Poisson":
     mu = st.number_input("Media (λ)", min_value=0.0, value=2.0)
-    x = st.number_input("Número de eventos (x)", min_value=0, value=3)
-    tipo = st.radio("Tipo de cálculo", ["P(X = x)", "P(X ≤ x)", "P(X ≥ x)"])
+    x = st.number_input("Número de eventos (k)", min_value=0, value=3)
+    tipo = st.radio("Tipo de cálculo", ["P(X = k)", "P(X ≤ k)", "P(X ≥ k)"])
 
-    if tipo == "P(X = x)":
+    if tipo == "P(X = k)":
         prob = stats.poisson.pmf(x, mu)
-    elif tipo == "P(X ≤ x)":
+    elif tipo == "P(X ≤ k)":
         prob = stats.poisson.cdf(x, mu)
     else:
         prob = 1 - stats.poisson.cdf(x-1, mu)
@@ -102,15 +102,15 @@ elif dist == "Poisson":
     ys = stats.poisson.pmf(xs, mu)
     fig, ax = plt.subplots()
     ax.bar(xs, ys, color='lightgray')
-    if tipo == "P(X = x)":
+    if tipo == "P(X = k)":
         ax.bar([x], [stats.poisson.pmf(x, mu)], color='#9F2241')
-    elif tipo == "P(X ≤ x)":
+    elif tipo == "P(X ≤ k)":
         ax.bar(xs[xs <= x], ys[xs <= x], color='#9F2241')
     else:
         ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Poisson (λ={mu})")
     st.pyplot(fig)
-    st.latex(r"P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0,1,2,\dots")
+    st.latex(r"P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad x = 0,1,2,\dots")
 
 
 elif dist == "Normal":
