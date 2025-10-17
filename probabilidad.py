@@ -52,6 +52,9 @@ if dist == "Bernoulli":
     ax.set_title(f"Distribución Bernoulli (p={p})")
     st.pyplot(fig)
 
+    st.latex(r"P(X=x) = p^x (1-p)^{1-x}, \quad x \in \{0,1\}")
+
+
 elif dist == "Binomial":
     n = st.number_input("Número de ensayos (n)", min_value=1, value=10)
     p = st.number_input("Probabilidad de éxito (p)", min_value=0.0, max_value=1.0, value=0.5)
@@ -79,6 +82,7 @@ elif dist == "Binomial":
         ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Binomial (n={n}, p={p})")
     st.pyplot(fig)
+    st.latex(r"P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \quad x=0,1,\dots,n")
 
 elif dist == "Poisson":
     mu = st.number_input("Media (λ)", min_value=0.0, value=2.0)
@@ -106,6 +110,8 @@ elif dist == "Poisson":
         ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Poisson (λ={mu})")
     st.pyplot(fig)
+    st.latex(r"P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0,1,2,\dots")
+
 
 elif dist == "Normal":
     mu = st.number_input("Media (μ)", value=0.0)
@@ -131,6 +137,9 @@ elif dist == "Normal":
     ax.set_title(f"Distribución Normal (μ={mu}, σ={sigma})")
     st.pyplot(fig)
 
+    st.latex(r"f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{ -\frac{(x - \mu)^2}{2\sigma^2} }")
+
+
 elif dist == "t-Student":
     gl = st.number_input("Grados de libertad (ν)", min_value=1, value=10)
     t = st.number_input("Valor t", value=1.5)
@@ -152,6 +161,9 @@ elif dist == "t-Student":
         ax.fill_between(xs, 0, ys, where=(xs >= t), color='#9F2241')
     ax.set_title(f"Distribución t-Student (ν={gl})")
     st.pyplot(fig)
+
+    st.latex(r"f(t) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}")
+
 
 elif dist == "Chi-cuadrada":
     gl = st.number_input("Grados de libertad (ν)", min_value=1, value=5)
@@ -175,6 +187,9 @@ elif dist == "Chi-cuadrada":
     ax.set_title(f"Distribución Chi-cuadrada (ν={gl})")
     st.pyplot(fig)
 
+    st.latex(r"f(x) = \frac{1}{2^{\nu/2}\Gamma(\nu/2)} x^{\frac{\nu}{2}-1} e^{-x/2}, \quad x > 0")
+
+
 elif dist == "F de Fisher":
     gl1 = st.number_input("Grados de libertad del numerador (d1)", min_value=1, value=5)
     gl2 = st.number_input("Grados de libertad del denominador (d2)", min_value=1, value=10)
@@ -197,6 +212,9 @@ elif dist == "F de Fisher":
         ax.fill_between(xs, 0, ys, where=(xs >= f), color='#9F2241')
     ax.set_title(f"Distribución F de Fisher (d1={gl1}, d2={gl2})")
     st.pyplot(fig)
+
+    st.latex(r"f(x) = \frac{\Gamma\left(\frac{d_1 + d_2}{2}\right)}{\Gamma\left(\frac{d_1}{2}\right)\Gamma\left(\frac{d_2}{2}\right)} \left(\frac{d_1}{d_2}\right)^{d_1/2} \frac{x^{d_1/2 - 1}}{(1 + \frac{d_1x}{d_2})^{(d_1 + d_2)/2}}, \quad x > 0")
+
 
 st.divider()
 st.caption("Calculadora de distribuciones estadísticas  UNRC_LCFI (UCA Probabilidad)")
