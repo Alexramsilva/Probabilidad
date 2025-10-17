@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Calculadora de Probabilidades (UCA Probabilidad)", page_icon="UNRC", layout="centered")
 
-st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=330)
+st.image("UNRC.png", caption="Universidad Nacional Rosario Castellanos", width=300)
 
 st.title("Calculadora de Distribuciones de Probabilidad  (UNRC-LCFI)")
 st.markdown("Selecciona una distribución y calcula probabilidades o valores críticos con su área marcada en el gráfico.")
@@ -47,7 +47,7 @@ if dist == "Bernoulli":
     xs = [0, 1]
     ys = stats.bernoulli.pmf(xs, p)
     ax.bar(xs, ys, color=['lightgray', 'lightgray'])
-    ax.bar([x], [prob], color='skyblue')
+    ax.bar([x], [prob], color='#9F2241')
     ax.set_xticks([0, 1])
     ax.set_title(f"Distribución Bernoulli (p={p})")
     st.pyplot(fig)
@@ -72,11 +72,11 @@ elif dist == "Binomial":
     fig, ax = plt.subplots()
     ax.bar(xs, ys, color='lightgray')
     if tipo == "P(X = x)":
-        ax.bar([x], [stats.binom.pmf(x, n, p)], color='skyblue')
+        ax.bar([x], [stats.binom.pmf(x, n, p)], color='#9F2241')
     elif tipo == "P(X ≤ x)":
-        ax.bar(xs[xs <= x], ys[xs <= x], color='skyblue')
+        ax.bar(xs[xs <= x], ys[xs <= x], color='#9F2241')
     else:
-        ax.bar(xs[xs >= x], ys[xs >= x], color='skyblue')
+        ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Binomial (n={n}, p={p})")
     st.pyplot(fig)
 
@@ -99,11 +99,11 @@ elif dist == "Poisson":
     fig, ax = plt.subplots()
     ax.bar(xs, ys, color='lightgray')
     if tipo == "P(X = x)":
-        ax.bar([x], [stats.poisson.pmf(x, mu)], color='skyblue')
+        ax.bar([x], [stats.poisson.pmf(x, mu)], color='#9F2241')
     elif tipo == "P(X ≤ x)":
-        ax.bar(xs[xs <= x], ys[xs <= x], color='skyblue')
+        ax.bar(xs[xs <= x], ys[xs <= x], color='#9F2241')
     else:
-        ax.bar(xs[xs >= x], ys[xs >= x], color='skyblue')
+        ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Poisson (λ={mu})")
     st.pyplot(fig)
 
@@ -125,9 +125,9 @@ elif dist == "Normal":
     fig, ax = plt.subplots()
     ax.plot(xs, ys, color='black')
     if tipo == "P(X ≤ x)":
-        ax.fill_between(xs, 0, ys, where=(xs <= x), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs <= x), color='#9F2241')
     else:
-        ax.fill_between(xs, 0, ys, where=(xs >= x), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs >= x), color='#9F2241')
     ax.set_title(f"Distribución Normal (μ={mu}, σ={sigma})")
     st.pyplot(fig)
 
@@ -147,9 +147,9 @@ elif dist == "t-Student":
     fig, ax = plt.subplots()
     ax.plot(xs, ys, color='black')
     if tipo == "P(T ≤ t)":
-        ax.fill_between(xs, 0, ys, where=(xs <= t), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs <= t), color='#9F2241')
     else:
-        ax.fill_between(xs, 0, ys, where=(xs >= t), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs >= t), color='#9F2241')
     ax.set_title(f"Distribución t-Student (ν={gl})")
     st.pyplot(fig)
 
@@ -169,9 +169,9 @@ elif dist == "Chi-cuadrada":
     fig, ax = plt.subplots()
     ax.plot(xs, ys, color='black')
     if tipo == "P(X² ≤ x)":
-        ax.fill_between(xs, 0, ys, where=(xs <= x), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs <= x), color='#9F2241')
     else:
-        ax.fill_between(xs, 0, ys, where=(xs >= x), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs >= x), color='#9F2241')
     ax.set_title(f"Distribución Chi-cuadrada (ν={gl})")
     st.pyplot(fig)
 
@@ -192,9 +192,9 @@ elif dist == "F de Fisher":
     fig, ax = plt.subplots()
     ax.plot(xs, ys, color='black')
     if tipo == "P(F ≤ f)":
-        ax.fill_between(xs, 0, ys, where=(xs <= f), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs <= f), color='#9F2241')
     else:
-        ax.fill_between(xs, 0, ys, where=(xs >= f), color='skyblue')
+        ax.fill_between(xs, 0, ys, where=(xs >= f), color='#9F2241')
     ax.set_title(f"Distribución F de Fisher (d1={gl1}, d2={gl2})")
     st.pyplot(fig)
 
