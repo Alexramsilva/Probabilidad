@@ -110,7 +110,7 @@ elif dist == "Poisson":
         ax.bar(xs[xs >= x], ys[xs >= x], color='#9F2241')
     ax.set_title(f"Distribución Poisson (λ={mu})")
     st.pyplot(fig)
-    st.latex(r"P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad x = 0,1,2,\dots")
+    st.latex(r"P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k = 0,1,2,\dots")
 
 
 elif dist == "Normal":
